@@ -53,8 +53,6 @@ Please follow [Conventional Commits](https://www.conventionalcommits.org/) for c
 - [ ] API documentation
 - [ ] Usage examples
 
-See [docs/todos.md](docs/todos.md) for detailed development progress.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

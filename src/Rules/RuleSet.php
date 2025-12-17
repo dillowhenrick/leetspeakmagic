@@ -2,33 +2,35 @@
 
 namespace Dillowhenrick\Leetspeakmagic\Rules;
 
-class RuleSet
+final class RuleSet
 {
     /**
      * @var SubstitutionRule[]
      */
-
-    public array $rules = [];
+    private array $rules;
 
     /**
      * @param SubstitutionRule[] $rules
      */
-
     public function __construct(array $rules = [])
     {
-        foreach ($rules as $rule) {
-            $this->addRule($rule);
-        }
+        $this->rules = $rules;
     }
 
-    public function addRule(SubstitutionRule $rule): self
+    public static function builder(): RuleSetBuilder
     {
-        $this->rules[] = $rule;
-
-        return $this;
+        return new RuleSetBuilder();
     }
 
-    public function applyRule(string $text): string
+    /**
+     * @return SubstitutionRule[]
+     */
+    public function getRules(): array
+    {
+        return $this->rules;
+    }
+
+    public function applyRules(string $text): string
     {
         $result = $text;
         foreach ($this->rules as $rule) {
